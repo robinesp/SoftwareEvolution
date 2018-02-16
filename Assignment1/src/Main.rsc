@@ -13,6 +13,22 @@ list[str] wordsInFile(loc file)
 list[str] stemAll(list[str] words) 
   = [stem(x) | x <- words];
   
+num cosineSimilarity(list[num] X, list[num] Y) {
+	XY = 0.0;
+    X2 = 0.0;
+    Y2 = 0.0;
+    if (size(X) != size(Y)) {
+    	println("Error: the two vectors have different length.");
+    	return -1;
+    }
+    for (int i <- [0 .. size(X)]) {
+        XY += X[i] * Y[i];
+        X2 += pow(X[i], 2);
+        Y2 += pow(Y[i], 2);
+    }   
+    return XY / (sqrt(X2) * sqrt(Y2));;
+}
+  
 void readRequirements() {
 
 	//load requirements from files
@@ -103,6 +119,17 @@ void readRequirements() {
 		lowReqsVec += [vec];
 	}
 	
+	
+	//compute similarity matrix using cosine similarity
+	matrix = [];
+	for (h <- highReqsVec) {
+		row = [];
+		for (l <- lowReqsVec) {
+			row += cosineSimilarity(h, l);
+		}
+		matrix += [row];
+	}
+		
 }
 
 
