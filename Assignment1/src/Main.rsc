@@ -2,6 +2,7 @@ module Main
 
 import IO;
 import String;
+import Set;
 import analysis::stemming::Snowball;
 
 list[str] wordsInFile(loc file) 
@@ -20,10 +21,10 @@ void readRequirements() {
 	lowReqs = [];
 	
 	for (f <- highFiles)
-		highReqs = highReqs + [wordsInFile(f)];
+		highReqs += [wordsInFile(f)];
 	
 	for (f <- lowFiles)
-		lowReqs = lowReqs + [wordsInFile(f)];
+		lowReqs += [wordsInFile(f)];
 	
 	
 	//load list of stop words and filter requirements
@@ -32,12 +33,12 @@ void readRequirements() {
 	
 	filtered = [];
 	for (req <- highReqs)
-		filtered += [[ word | word <- req, toLowerCase(word) notin stopWords ]];
+		filtered += [[ toLowerCase(word) | word <- req, toLowerCase(word) notin stopWords ]];
 	highReqs = filtered;
 		
 	filtered = [];
 	for (req <- lowReqs)
-		filtered += [[ word | word <- req, toLowerCase(word) notin stopWords ]];
+		filtered += [[ toLowerCase(word) | word <- req, toLowerCase(word) notin stopWords ]];
 	lowReqs = filtered;
 	
 	
@@ -52,6 +53,15 @@ void readRequirements() {
 		stemmed += [stemAll(req)];
 	lowReqs = stemmed;
 	
+	
+	//create master vocabulary
+	vocabulary = {};
+	for (req <- highReqs)
+		vocabulary += { word | word <- req };
+	for (req <- lowReqs)
+		vocabulary += { word | word <- req };
+		
+	print(sort(vocabulary));
 }
 
 

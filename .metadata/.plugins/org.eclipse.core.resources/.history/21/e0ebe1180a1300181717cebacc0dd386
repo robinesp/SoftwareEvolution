@@ -33,12 +33,12 @@ void readRequirements() {
 	
 	filtered = [];
 	for (req <- highReqs)
-		filtered += [[ toLowerCase(word) | word <- req, toLowerCase(word) notin stopWords ]];
+		filtered += [[ word | word <- req, toLowerCase(word) notin stopWords ]];
 	highReqs = filtered;
 		
 	filtered = [];
 	for (req <- lowReqs)
-		filtered += [[ toLowerCase(word) | word <- req, toLowerCase(word) notin stopWords ]];
+		filtered += [[ word | word <- req, toLowerCase(word) notin stopWords ]];
 	lowReqs = filtered;
 	
 	
