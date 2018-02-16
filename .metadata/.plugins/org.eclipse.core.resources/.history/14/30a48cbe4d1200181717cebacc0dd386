@@ -1,0 +1,7 @@
+module Main
+
+import IO;
+
+void detect() {
+	
+}

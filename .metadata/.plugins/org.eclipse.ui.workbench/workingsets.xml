@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1517992567666_1" label="Rascal" name="Rascal"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1517992590418_2" label="Examples" name="Examples"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1517992474602_0" label="Window Working Set" name="Aggregate for window 1517992474601"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1518695169251_3" label="Window Working Set" name="Aggregate for window 1518695169251"/>
+<mruList name="Rascal"/>
+</workingSetManager>

@@ -1,0 +1,16 @@
+INDEX VERSION 1.130+D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\.metadata\.plugins\org.eclipse.jdt.core
+1497003736.index
+289911375.index
+332383186.index
+1694709051.index
+1796301141.index
+4257325822.index
+3186107971.index
+1758241661.index
+643133857.index
+132620216.index
+4282905210.index
+3712801846.index
+320569335.index
+3210867557.index
+1236144326.index
