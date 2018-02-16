@@ -2,13 +2,11 @@ module Main
 
 import IO;
 import String;
-import analysis::stemming::Snowball;
+
 
 list[str] wordsInFile(loc file) 
   = [ word | /<word:[a-zA-Z]+>/ := readFile(file)];
   
-list[str] stemAll(list[str] words) 
-  = [stem(x) | x <- words];
   
 void readRequirements() {
 
@@ -39,18 +37,6 @@ void readRequirements() {
 	for (req <- lowReqs)
 		filtered += [[ word | word <- req, toLowerCase(word) notin stopWords ]];
 	lowReqs = filtered;
-	
-	
-	//apply snowball stemming
-	stemmed = [];
-	for (req <- highReqs)
-		stemmed += [stemAll(req)];
-	highReqs = stemmed;
-		
-	stemmed = [];
-	for (req <- lowReqs)
-		stemmed += [stemAll(req)];
-	lowReqs = stemmed;
 	
 }
 

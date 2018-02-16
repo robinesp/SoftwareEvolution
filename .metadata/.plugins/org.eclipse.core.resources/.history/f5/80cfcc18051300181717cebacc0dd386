@@ -2,7 +2,7 @@ module Main
 
 import IO;
 import String;
-import analysis::stemming::Snowball;
+
 
 list[str] wordsInFile(loc file) 
   = [ word | /<word:[a-zA-Z]+>/ := readFile(file)];

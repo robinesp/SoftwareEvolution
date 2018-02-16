@@ -52,6 +52,7 @@ void readRequirements() {
 		stemmed += [stemAll(req)];
 	lowReqs = stemmed;
 	
+	print(highReqs[0]);
 }
 
 
