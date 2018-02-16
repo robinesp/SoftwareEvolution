@@ -3,6 +3,8 @@ module Main
 import IO;
 import String;
 import Set;
+import List;
+import util::Math;
 import analysis::stemming::Snowball;
 
 list[str] wordsInFile(loc file) 
@@ -61,7 +63,46 @@ void readRequirements() {
 	for (req <- lowReqs)
 		vocabulary += { word | word <- req };
 		
-	print(sort(vocabulary));
+	
+	//vector representation
+	highReqsVec = [];
+	lowReqsVec = [];
+	n = size(highReqs) + size(lowReqs);
+	
+	for (req <- highReqs) {
+		vec = [];
+		freq = distribution(req);
+		for (word <- sort(vocabulary)) {
+			if (word notin req) vec += 0;
+			else {
+				tf = freq[word];
+				d = 0.0;
+				for (r <- highReqs + lowReqs)
+					if (word in r) d += 1;
+				idf = log2(n/d);
+				vec += tf * idf;
+			}
+		}
+		highReqsVec += [vec];
+	}
+	
+	for (req <- lowReqs) {
+		vec = [];
+		freq = distribution(req);
+		for (word <- sort(vocabulary)) {
+			if (word notin req) vec += 0;
+			else {
+				tf = freq[word];
+				d = 0.0;
+				for (r <- highReqs + lowReqs)
+					if (word in r) d += 1;
+				idf = log2(n/d);
+				vec += tf * idf;
+			}
+		}
+		lowReqsVec += [vec];
+	}
+	
 }
 
 
