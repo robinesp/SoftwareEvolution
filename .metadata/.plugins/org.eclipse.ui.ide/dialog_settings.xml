@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\software-evolution"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\snakes-and-ladders-java"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\snakes-and-ladders-cpp"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\pico-extension-and-analysis"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\pdb.values"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\pacman-cpp"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\java-analysis"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\cpp-analysis"/>
+			<item value="D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\eLib"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

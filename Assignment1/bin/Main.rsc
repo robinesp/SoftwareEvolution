@@ -30,7 +30,7 @@ num cosineSimilarity(list[num] X, list[num] Y) {
     return XY / (sqrt(X2) * sqrt(Y2));;
 }
   
-void readRequirements(loc highFilesDir, loc lowFilesDir, int filterType) {
+void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 
 	//load requirements from files
 	list[loc] highFiles;
@@ -139,23 +139,24 @@ void readRequirements(loc highFilesDir, loc lowFilesDir, int filterType) {
 		
 		
 	//filter requirements according to flag and write to file
-	writeFile(|project://Assignment1/data/trace-links.txt|, "");
+	resultFile = |project://Assignment1/data/trace-links.txt|;
+	writeFile(resultFile, "");
 	
 	switch (filterType) {
 		case 1: {
 			for (int i <- [0 .. size(highFiles)]) {
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"%\n");
-				appendToFile(|project://Assignment1/data/trace-links.txt|,highFiles[i].file);
+				appendToFile(resultFile,"%\n");
+				appendToFile(resultFile,highFiles[i].file);
 				for (int j <- [0 .. size(lowFiles)]) {
-					if (matrix[i][j] >= 0) appendToFile(|project://Assignment1/data/trace-links.txt|,"\t<lowFiles[j].file>");
+					if (matrix[i][j] >= 0) appendToFile(resultFile,"\t<lowFiles[j].file>");
 				}
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"\n");
+				appendToFile(resultFile,"\n");
 			}
 		}	
 		case 2: {
 			for (int i <- [0 .. size(highFiles)]) {
-				appendToFile(|project://Assignment1/data/trace-links.txt|, "%\n");
-				appendToFile(|project://Assignment1/data/trace-links.txt|,highFiles[i].file);
+				appendToFile(resultFile, "%\n");
+				appendToFile(resultFile,highFiles[i].file);
 				
 				orderedVecs = reverse(sort(matrix[i]));
 				max4 = [x | num x <- slice(orderedVecs, 0, 4), x > 0];				
@@ -164,46 +165,46 @@ void readRequirements(loc highFilesDir, loc lowFilesDir, int filterType) {
 					indices += indexOf(matrix[i], val);
 			
 				for (int j <- indices)
-					appendToFile(|project://Assignment1/data/trace-links.txt|,"\t<lowFiles[j].file>");
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"\n");
+					appendToFile(resultFile,"\t<lowFiles[j].file>");
+				appendToFile(resultFile,"\n");
 			}
 		}
 		case 3: {
 			for (int i <- [0 .. size(highFiles)]) {
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"%\n");
-				appendToFile(|project://Assignment1/data/trace-links.txt|,highFiles[i].file);
+				appendToFile(resultFile,"%\n");
+				appendToFile(resultFile,highFiles[i].file);
 				for (int j <- [0 .. size(lowFiles)]) {
-					if (matrix[i][j] >= 0.25) appendToFile(|project://Assignment1/data/trace-links.txt|,"\t<lowFiles[j].file>");
+					if (matrix[i][j] >= 0.25) appendToFile(resultFile,"\t<lowFiles[j].file>");
 				}
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"\n");
+				appendToFile(resultFile,"\n");
 			}
 		}
 		case 4: {
 			for (int i <- [0 .. size(highFiles)]) {
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"%\n");
-				appendToFile(|project://Assignment1/data/trace-links.txt|,highFiles[i].file);
+				appendToFile(resultFile,"%\n");
+				appendToFile(resultFile,highFiles[i].file);
 				
 				orderedVecs = reverse(sort(matrix[i]));
 				maxSim = orderedVecs[0];
 				
 				for (int j <- [0 .. size(lowFiles)]) {
-					if (matrix[i][j] >= 0.67 * maxSim) appendToFile(|project://Assignment1/data/trace-links.txt|,"\t<lowFiles[j].file>");
+					if (matrix[i][j] >= 0.67 * maxSim) appendToFile(resultFile,"\t<lowFiles[j].file>");
 				}
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"\n");
+				appendToFile(resultFile,"\n");
 			}
 		}
 		case 5: {
 			for (int i <- [0 .. size(highFiles)]) {
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"%\n");
-				appendToFile(|project://Assignment1/data/trace-links.txt|,highFiles[i].file);
+				appendToFile(resultFile,"%\n");
+				appendToFile(resultFile,highFiles[i].file);
 				
 				orderedVecs = reverse(sort(matrix[i]));
 				maxSim = orderedVecs[0];
 				
 				for (int j <- [0 .. size(lowFiles)]) {
-					if (matrix[i][j] >= 0.5 * maxSim) appendToFile(|project://Assignment1/data/trace-links.txt|,"\t<lowFiles[j].file>");
+					if (matrix[i][j] >= 0.5 * maxSim) appendToFile(resultFile,"\t<lowFiles[j].file>");
 				}
-				appendToFile(|project://Assignment1/data/trace-links.txt|,"\n");
+				appendToFile(resultFile,"\n");
 			}
 		}
 		default: println("Error: incorrect filtering flag.");
@@ -212,5 +213,5 @@ void readRequirements(loc highFilesDir, loc lowFilesDir, int filterType) {
 
 
 void startTool() {
-	readRequirements(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2);
+	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2);
 }
