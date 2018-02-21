@@ -1,4 +1,4 @@
-!SESSION 2018-02-17 11:46:14.341 -----------------------------------------------
+!SESSION 2018-02-21 21:10:01.397 -----------------------------------------------
 eclipse.buildId=4.7.2.M20171130-0510
 java.version=1.8.0_161
 java.vendor=Oracle Corporation
@@ -6,10 +6,306 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
 Framework arguments:  -product org.eclipse.epp.package.rcp.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.rcp.product
 
-This is a continuation of log file D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\.metadata\.bak_8.log
-Created Time: 2018-02-17 11:55:22.462
+This is a continuation of log file D:\Documents\TUe\1st year\3rd quartile\Software Evolution\Eclipse Projects\.metadata\.bak_1.log
+Created Time: 2018-02-21 21:16:08.875
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.462
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.876
+!MESSAGE could not create proper path config, defaulting
+!STACK 0
+java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:129)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfig(IDEServicesModelProvider.java:177)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfigCons(IDEServicesModelProvider.java:171)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.getChildren(NavigatorContentProvider.java:139)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.hasChildren(NavigatorContentProvider.java:637)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.hasChildren(SafeDelegateTreeContentProvider.java:112)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.callNormalHasChildren(NavigatorContentServiceContentProvider.java:442)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.access$4(NavigatorContentServiceContentProvider.java:437)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$3.run(NavigatorContentServiceContentProvider.java:405)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:390)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:434)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2099)
+	at org.eclipse.jface.viewers.TreeViewer.isExpandable(TreeViewer.java:537)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2137)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.optionallyPruneChildren(AbstractTreeViewer.java:2770)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updateChildren(AbstractTreeViewer.java:2569)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1894)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1900)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1870)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1827)
+	at org.eclipse.ui.navigator.CommonViewer.internalRefresh(CommonViewer.java:529)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$3(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1447)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1408)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:535)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:349)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:492)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider$1.runInUIThread(NavigatorContentProvider.java:656)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+Caused by: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at java.net.URI$Parser.fail(URI.java:2848)
+	at java.net.URI$Parser.checkChars(URI.java:3021)
+	at java.net.URI$Parser.parseHierarchical(URI.java:3105)
+	at java.net.URI$Parser.parse(URI.java:3053)
+	at java.net.URI.<init>(URI.java:588)
+	at java.net.URL.toURI(URL.java:946)
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
+	... 59 more
+
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.880
+!MESSAGE could not create proper path config, defaulting
+!STACK 0
+java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:129)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfig(IDEServicesModelProvider.java:177)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfigCons(IDEServicesModelProvider.java:171)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.getChildren(NavigatorContentProvider.java:139)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.hasChildren(NavigatorContentProvider.java:637)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.hasChildren(SafeDelegateTreeContentProvider.java:112)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.callNormalHasChildren(NavigatorContentServiceContentProvider.java:442)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.access$4(NavigatorContentServiceContentProvider.java:437)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$3.run(NavigatorContentServiceContentProvider.java:405)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:390)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:434)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2099)
+	at org.eclipse.jface.viewers.TreeViewer.isExpandable(TreeViewer.java:537)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2137)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.optionallyPruneChildren(AbstractTreeViewer.java:2770)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updateChildren(AbstractTreeViewer.java:2569)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1894)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1900)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1870)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1827)
+	at org.eclipse.ui.navigator.CommonViewer.internalRefresh(CommonViewer.java:529)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$3(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1447)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1408)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:535)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:349)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:492)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider$1.runInUIThread(NavigatorContentProvider.java:656)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+Caused by: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at java.net.URI$Parser.fail(URI.java:2848)
+	at java.net.URI$Parser.checkChars(URI.java:3021)
+	at java.net.URI$Parser.parseHierarchical(URI.java:3105)
+	at java.net.URI$Parser.parse(URI.java:3053)
+	at java.net.URI.<init>(URI.java:588)
+	at java.net.URL.toURI(URL.java:946)
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
+	... 59 more
+
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.884
+!MESSAGE could not create proper path config, defaulting
+!STACK 0
+java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:129)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfig(IDEServicesModelProvider.java:177)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfigCons(IDEServicesModelProvider.java:171)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.getChildren(NavigatorContentProvider.java:139)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.hasChildren(NavigatorContentProvider.java:637)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.hasChildren(SafeDelegateTreeContentProvider.java:112)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.callNormalHasChildren(NavigatorContentServiceContentProvider.java:442)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.access$4(NavigatorContentServiceContentProvider.java:437)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$3.run(NavigatorContentServiceContentProvider.java:405)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:390)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:434)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2099)
+	at org.eclipse.jface.viewers.TreeViewer.isExpandable(TreeViewer.java:537)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2137)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.optionallyPruneChildren(AbstractTreeViewer.java:2770)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updateChildren(AbstractTreeViewer.java:2569)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1894)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1900)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1870)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1827)
+	at org.eclipse.ui.navigator.CommonViewer.internalRefresh(CommonViewer.java:529)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$3(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1447)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1408)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:535)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:349)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:492)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider$1.runInUIThread(NavigatorContentProvider.java:656)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+Caused by: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at java.net.URI$Parser.fail(URI.java:2848)
+	at java.net.URI$Parser.checkChars(URI.java:3021)
+	at java.net.URI$Parser.parseHierarchical(URI.java:3105)
+	at java.net.URI$Parser.parse(URI.java:3053)
+	at java.net.URI.<init>(URI.java:588)
+	at java.net.URL.toURI(URL.java:946)
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
+	... 59 more
+
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.888
+!MESSAGE could not create proper path config, defaulting
+!STACK 0
+java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:129)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfig(IDEServicesModelProvider.java:177)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfigCons(IDEServicesModelProvider.java:171)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.getChildren(NavigatorContentProvider.java:139)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.hasChildren(NavigatorContentProvider.java:637)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.hasChildren(SafeDelegateTreeContentProvider.java:112)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.callNormalHasChildren(NavigatorContentServiceContentProvider.java:442)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.access$4(NavigatorContentServiceContentProvider.java:437)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$3.run(NavigatorContentServiceContentProvider.java:405)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:390)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:434)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2099)
+	at org.eclipse.jface.viewers.TreeViewer.isExpandable(TreeViewer.java:537)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2137)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.optionallyPruneChildren(AbstractTreeViewer.java:2770)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updateChildren(AbstractTreeViewer.java:2569)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1894)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1900)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1870)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1827)
+	at org.eclipse.ui.navigator.CommonViewer.internalRefresh(CommonViewer.java:529)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$3(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1447)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1408)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:535)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:349)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:492)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider$1.runInUIThread(NavigatorContentProvider.java:656)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+Caused by: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at java.net.URI$Parser.fail(URI.java:2848)
+	at java.net.URI$Parser.checkChars(URI.java:3021)
+	at java.net.URI$Parser.parseHierarchical(URI.java:3105)
+	at java.net.URI$Parser.parse(URI.java:3053)
+	at java.net.URI.<init>(URI.java:588)
+	at java.net.URL.toURI(URL.java:946)
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
+	... 59 more
+
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.893
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -82,7 +378,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.466
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.896
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -155,7 +451,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.471
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.900
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -228,7 +524,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.475
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.904
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -301,7 +597,80 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.479
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.907
+!MESSAGE could not create proper path config, defaulting
+!STACK 0
+java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:129)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfig(IDEServicesModelProvider.java:177)
+	at org.rascalmpl.eclipse.editor.IDEServicesModelProvider.getPathConfigCons(IDEServicesModelProvider.java:171)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.getChildren(NavigatorContentProvider.java:139)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider.hasChildren(NavigatorContentProvider.java:637)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.hasChildren(SafeDelegateTreeContentProvider.java:112)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.callNormalHasChildren(NavigatorContentServiceContentProvider.java:442)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.access$4(NavigatorContentServiceContentProvider.java:437)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$3.run(NavigatorContentServiceContentProvider.java:405)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:390)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.hasChildren(NavigatorContentServiceContentProvider.java:434)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2099)
+	at org.eclipse.jface.viewers.TreeViewer.isExpandable(TreeViewer.java:537)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.isExpandable(AbstractTreeViewer.java:2137)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updatePlus(AbstractTreeViewer.java:2821)
+	at org.eclipse.jface.viewers.TreeViewer.updatePlus(TreeViewer.java:785)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.updateChildren(AbstractTreeViewer.java:2711)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefreshStruct(AbstractTreeViewer.java:1894)
+	at org.eclipse.jface.viewers.TreeViewer.internalRefreshStruct(TreeViewer.java:668)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1870)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.internalRefresh(AbstractTreeViewer.java:1827)
+	at org.eclipse.ui.navigator.CommonViewer.internalRefresh(CommonViewer.java:529)
+	at org.eclipse.jface.viewers.StructuredViewer.lambda$3(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1447)
+	at org.eclipse.jface.viewers.TreeViewer.preservingSelection(TreeViewer.java:354)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:1408)
+	at org.eclipse.jface.viewers.StructuredViewer.refresh(StructuredViewer.java:1531)
+	at org.eclipse.jface.viewers.ColumnViewer.refresh(ColumnViewer.java:535)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:349)
+	at org.eclipse.ui.navigator.CommonViewer.refresh(CommonViewer.java:492)
+	at org.rascalmpl.eclipse.navigator.NavigatorContentProvider$1.runInUIThread(NavigatorContentProvider.java:656)
+	at org.eclipse.ui.progress.UIJob.lambda$0(UIJob.java:95)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1472)
+Caused by: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
+	at java.net.URI$Parser.fail(URI.java:2848)
+	at java.net.URI$Parser.checkChars(URI.java:3021)
+	at java.net.URI$Parser.parseHierarchical(URI.java:3105)
+	at java.net.URI$Parser.parse(URI.java:3053)
+	at java.net.URI.<init>(URI.java:588)
+	at java.net.URL.toURI(URL.java:946)
+	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
+	... 58 more
+
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.911
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -374,7 +743,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.484
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.919
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -448,7 +817,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.488
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.922
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -522,7 +891,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.491
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.925
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -596,7 +965,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.494
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.928
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -670,7 +1039,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.511
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.932
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -743,7 +1112,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.515
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.934
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -816,7 +1185,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.518
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.937
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -889,7 +1258,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.523
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.939
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -962,7 +1331,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.526
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.942
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1035,7 +1404,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.530
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.945
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1108,7 +1477,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.538
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.950
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1182,7 +1551,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.541
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.953
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1256,7 +1625,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.544
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.956
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1330,7 +1699,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.547
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.958
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1404,7 +1773,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.572
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.961
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1477,7 +1846,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.575
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.964
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1550,7 +1919,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.579
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.966
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1623,7 +1992,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.582
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.970
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1696,7 +2065,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.586
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.972
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1769,7 +2138,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.590
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.975
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1842,7 +2211,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.598
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.980
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1916,7 +2285,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.601
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.983
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -1990,7 +2359,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.605
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.985
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2064,7 +2433,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.609
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.988
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2138,7 +2507,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.628
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.991
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2211,7 +2580,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.631
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.994
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2284,7 +2653,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.635
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.996
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2357,7 +2726,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.639
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:08.999
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2430,7 +2799,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.643
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.001
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2503,7 +2872,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.646
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.004
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2576,7 +2945,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.652
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.009
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2650,7 +3019,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.656
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.012
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2724,7 +3093,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.659
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.015
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2798,7 +3167,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.662
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.017
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2872,7 +3241,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.679
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.021
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -2945,7 +3314,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.682
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.025
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3018,7 +3387,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.685
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.028
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3091,7 +3460,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.689
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.031
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3164,7 +3533,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.692
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.034
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3237,7 +3606,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.696
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.037
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3310,7 +3679,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.702
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.042
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3384,7 +3753,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.705
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.045
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3458,7 +3827,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.708
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.047
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3532,7 +3901,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.712
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.051
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3606,7 +3975,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.731
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.054
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3679,7 +4048,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.734
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.056
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3752,7 +4121,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.737
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.058
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3825,7 +4194,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.740
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.060
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3898,7 +4267,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.743
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.063
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -3971,7 +4340,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.746
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.066
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4044,7 +4413,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.752
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.071
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4118,7 +4487,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.755
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.073
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4192,7 +4561,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.758
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.076
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4266,7 +4635,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.762
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.078
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4340,7 +4709,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.779
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.081
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4413,7 +4782,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.783
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.084
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4486,7 +4855,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.787
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.086
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4559,7 +4928,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.790
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.088
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4632,7 +5001,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.794
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.091
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4705,7 +5074,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.798
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.093
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4778,7 +5147,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.804
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.098
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4852,7 +5221,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.807
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.122
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -4926,7 +5295,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.811
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.125
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5000,7 +5369,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.814
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.128
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5074,7 +5443,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.830
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.134
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5147,7 +5516,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.833
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.136
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5220,7 +5589,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.836
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.139
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5293,7 +5662,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.839
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.141
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5366,7 +5735,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.843
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.144
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5439,7 +5808,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.847
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.147
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5512,7 +5881,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.855
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.153
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5586,7 +5955,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.859
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.155
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5660,7 +6029,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.862
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.158
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5734,7 +6103,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.865
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.161
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5808,7 +6177,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.884
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.165
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5881,7 +6250,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.888
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.168
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -5954,7 +6323,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.892
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.171
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6027,7 +6396,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.896
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.173
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6100,7 +6469,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.900
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.176
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6173,7 +6542,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.905
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.178
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6246,7 +6615,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 58 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.913
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.184
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6320,7 +6689,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.917
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.186
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6394,7 +6763,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.921
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.189
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar
@@ -6468,7 +6837,7 @@ Caused by: java.net.URISyntaxException: Illegal character in path at index 26: f
 	at org.rascalmpl.eclipse.util.ProjectConfig.getPathConfig(ProjectConfig.java:114)
 	... 59 more
 
-!ENTRY rascal_eclipse 4 0 2018-02-17 11:55:22.925
+!ENTRY rascal_eclipse 4 0 2018-02-21 21:16:09.191
 !MESSAGE could not create proper path config, defaulting
 !STACK 0
 java.io.IOException: java.net.URISyntaxException: Illegal character in path at index 26: file:/D:/Documents/TUe/1st year/3rd quartile/Software Evolution/eclipse/plugins/rascal_eclipse_0.10.0.201802141321/lib/rascal.jar

@@ -246,13 +246,13 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 			handTraceLink = split("\t", corrh);
 			for (t <- tracesList) {
 				traceLink = split("\t", t);
-				if(handTraceLink[0] == traceLink[0]) {
+				if(trim(handTraceLink[0]) == trim(traceLink[0])) {
 					int matches = 0; // matches of low-level requirements for a high-level requirement
 					
 					// check if the same low-level requirements are detected
 					for(int n <- [1 .. size(handTraceLink)]) {
 						for(w <- traceLink) {
-							if(handTraceLink[n] == w) {
+							if(trim(handTraceLink[n]) == trim(w)) {
 								matches = matches + 1;								
 							}
 						}
