@@ -215,3 +215,60 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 void startTool() {
 	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2);
 }
+
+void evaluateTool() {
+	evaluate(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2, |project://Assignment1/data/modis/handtrace.txt|);	
+}
+
+void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFile) {
+	int tp = 0; // true positives
+	int fp = 0; // false positives
+	int fn = 0; // false negatives
+
+	// read in the manually identified trace-links and do some preparation
+	handTracesFile = readFile(traceLinkFile);	
+	handTraces = replaceAll(handTracesFile, "\n", "");
+	handTracesList = split("%", handTraces);
+	
+	// run the tool
+	detect(highFilesDir, lowFilesDir, filterType);
+	
+	// read in the trace-links predicted by the tool and do some preparation
+	resultFile = |project://Assignment1/data/trace-links.txt|;
+	tracesFile = readFile(resultFile);
+	traces = replaceAll(tracesFile, "\n", "");
+	tracesList = split("%", traces);
+	
+	// for each high-level requirement, find this requirement in both the file recording
+	// manually constructed trace-links and the tool constructed trace-links
+	for (h <- handTracesList) {
+		if(!isEmpty(h)) {
+			corrh = replaceAll(h, " ", "\t");
+			handTraceLink = split("\t", corrh);
+			for (t <- tracesList) {
+				traceLink = split("\t", t);
+				if(handTraceLink[0] == traceLink[0]) {
+					int matches = 0; // matches of low-level requirements for a high-level requirement
+					
+					// check if the same low-level requirements are detected
+					for(int n <- [1 .. size(handTraceLink)]) {
+						for(w <- traceLink) {
+							if(handTraceLink[n] == w) {
+								matches = matches + 1;								
+							}
+						}
+					}
+					tp = tp + matches;
+					fp = fp + (size(traceLink) - 1 - matches);
+					fn = fn + (size(handTraceLink) - 1 - matches);
+				}
+			}
+			
+		}
+	}
+	
+	// printing the confusion matrix
+	println("\t\t\t\ttl identified man \t tl not-identified man");
+	println("tl predicted by tool \t\t\t <tp> \t\t\t <fp>");
+	println("tl not predicted by tool \t\t <fn>");
+}
