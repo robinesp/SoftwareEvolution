@@ -211,7 +211,7 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 }
 
 
-void runTool() {
+void startTool() {
 	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2);
 }
 
