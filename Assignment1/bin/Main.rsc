@@ -271,4 +271,13 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 	println("\t\t\t\ttl identified man \t tl not-identified man");
 	println("tl predicted by tool \t\t\t <tp> \t\t\t <fp>");
 	println("tl not predicted by tool \t\t <fn>");
+	println();
+	
+	// recall
+	println("recall: <tp / toReal(tp + fn)>");
+	
+	// precision
+	println("precision: <tp / toReal(tp + fp)>");
+	
+	
 }
