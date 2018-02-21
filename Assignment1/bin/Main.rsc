@@ -85,8 +85,7 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 		vocabulary += { word | word <- req };
 	for (req <- lowReqs)
 		vocabulary += { word | word <- req };
-		
-	
+
 	//vector representation
 	highReqsVec = [];
 	lowReqsVec = [];
@@ -217,7 +216,7 @@ void startTool() {
 }
 
 void evaluateTool() {
-	evaluate(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2, |project://Assignment1/data/modis/handtrace.txt|);	
+	evaluate(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 1, |project://Assignment1/data/modis/handtrace.txt|);	
 }
 
 void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFile) {
