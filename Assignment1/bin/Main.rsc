@@ -157,14 +157,30 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 				appendToFile(resultFile, "%\n");
 				appendToFile(resultFile,highFiles[i].file);
 				
-				orderedVecs = reverse(sort(matrix[i]));
-				max4 = [x | num x <- slice(orderedVecs, 0, 4), x > 0];				
-				indices = [];				
-				for (num val <- max4)
-					indices += indexOf(matrix[i], val);
+				int j = 0;
+				map[str, num] dict = ();
+				for (simValue <- matrix[i]) {
+					dict += (lowFiles[j].file : simValue);
+					j += 1;
+				}
+				
+				max4 = [];
+				for (int n <- [0 .. 4]) {
+					maxValue = 0;
+					maxReq = "";
+					for(current <- dict) {
+						if(dict[current] > maxValue) {
+							maxValue = dict[current];
+							maxReq = current;
+						}
+					}
+					max4 += maxReq;
+					dict -= (maxReq : maxValue);
+					n += 1;
+				}
 			
-				for (int j <- indices)
-					appendToFile(resultFile,"\t<lowFiles[j].file>");
+				for (str r <- max4)
+					appendToFile(resultFile,"\t<r>");
 				appendToFile(resultFile,"\n");
 			}
 		}
@@ -212,7 +228,7 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 
 
 void runTool() {
-	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 1);
+	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 2);
 }
 
 void evaluateTool() {
