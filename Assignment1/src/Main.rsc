@@ -165,7 +165,7 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 				}
 				
 				max4 = [];
-				for (int n <- [0 .. 4]) {
+				for (int k <- [0 .. 4]) {
 					maxValue = 0;
 					maxReq = "";
 					for(current <- dict) {
@@ -176,7 +176,7 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 					}
 					max4 += maxReq;
 					dict -= (maxReq : maxValue);
-					n += 1;
+					// n += 1;
 				}
 			
 				for (str r <- max4)
@@ -239,6 +239,10 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 	int tp = 0; // true positives
 	int fp = 0; // false positives
 	int fn = 0; // false negatives
+	
+	list[loc] highFiles = highFilesDir.ls;
+	list[loc] lowFiles = lowFilesDir.ls; 
+	int total = size(highFiles) * size(lowFiles);
 
 	// read in the manually identified trace-links and do some preparation
 	handTracesFile = readFile(traceLinkFile);	
@@ -264,28 +268,36 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 				traceLink = split("\t", t);
 				if(trim(handTraceLink[0]) == trim(traceLink[0])) {
 					int matches = 0; // matches of low-level requirements for a high-level requirement
-					
+
 					// check if the same low-level requirements are detected
 					for(int n <- [1 .. size(handTraceLink)]) {
-						for(w <- traceLink) {
-							if(trim(handTraceLink[n]) == trim(w)) {
-								matches = matches + 1;								
-							}
+						bool check = true;
+						for(int w <- [1 .. size(traceLink)]) {
+							if(trim(handTraceLink[n]) == trim(traceLink[w])) {
+								matches = matches + 1;
+								check = false;								
+							} 
+						}
+						if(check) {
+							println("<traceLink[0]> - <handTraceLink[n]>: \t\t false negative");
 						}
 					}
+
+					// update the true positives, false positives, and false negatives
 					tp = tp + matches;
 					fp = fp + (size(traceLink) - 1 - matches);
 					fn = fn + (size(handTraceLink) - 1 - matches);
 				}
+				
 			}
-			
 		}
 	}
 	
 	// printing the confusion matrix
+	println();
 	println("\t\t\t\ttl identified man \t tl not-identified man");
 	println("tl predicted by tool \t\t\t <tp> \t\t\t <fp>");
-	println("tl not predicted by tool \t\t <fn>");
+	println("tl not predicted by tool \t\t <fn> \t\t\t <total - tp - fp - fn>");
 	println();
 	
 	// recall
