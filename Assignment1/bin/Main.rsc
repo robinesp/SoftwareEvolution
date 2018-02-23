@@ -258,6 +258,9 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 	traces = replaceAll(tracesFile, "\n", "");
 	tracesList = split("%", traces);
 	
+	misClassFP = []; // list of false positive misclassifications
+	misClassFN = []; // list of false negative misclassifications
+	
 	// for each high-level requirement, find this requirement in both the file recording
 	// manually constructed trace-links and the tool constructed trace-links
 	for (h <- handTracesList) {
@@ -266,22 +269,33 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 			handTraceLink = split("\t", corrh);
 			for (t <- tracesList) {
 				traceLink = split("\t", t);
+				mistakesFN = []; // list of false negative misclassifications for this one high-level requirement
+				
+				// check if both highlevel requirements are the same
 				if(trim(handTraceLink[0]) == trim(traceLink[0])) {
 					int matches = 0; // matches of low-level requirements for a high-level requirement
-
+					mistakesFP = traceLink; // list of false positive misclassifications for this one high-level requirement
+					mistakesFN += handTraceLink[0];
+					
 					// check if the same low-level requirements are detected
 					for(int n <- [1 .. size(handTraceLink)]) {
 						bool check = true;
 						for(int w <- [1 .. size(traceLink)]) {
+							// if the same low-level requirements are detected, add one to matches
+							// and update the misclassifications
 							if(trim(handTraceLink[n]) == trim(traceLink[w])) {
 								matches = matches + 1;
+								ind = indexOf(mistakesFP, traceLink[w]);
+								mistakesFP = delete(mistakesFP, ind);
 								check = false;								
 							} 
 						}
 						if(check) {
-							println("<traceLink[0]> - <handTraceLink[n]>: \t\t false negative");
+							mistakesFN += handTraceLink[n];
 						}
 					}
+					misClassFP += intercalate(" ", mistakesFP);
+					misClassFN += intercalate(" ", mistakesFN);
 
 					// update the true positives, false positives, and false negatives
 					tp = tp + matches;
@@ -301,10 +315,24 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 	println();
 	
 	// recall
-	println("recall: <tp / toReal(tp + fn)>");
+	println("recall: <tp / toReal(tp + fn) * 100>%");
 	
 	// precision
-	println("precision: <tp / toReal(tp + fp)>");
+	println("precision: <tp / toReal(tp + fp) * 100>%");
+	
+	// printing of false negative misclassifications
+	println();
+	println("False negative misclassifications");
+	for(m <- misClassFN) {
+		println(m);
+	}
+	
+	// printing of false positive misclassifications
+	println();
+	println("False positive misclassifications");
+	for(m <- misClassFP) {
+		println(m);
+	}
 	
 	
 }
