@@ -40,7 +40,7 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 		highFiles = highFilesDir.ls;
 		lowFiles = lowFilesDir.ls;
 	} 	catch PathNotFound(e) :  { println("Error: incorrect directory path."); return; }
-		catch IO(e) : { println("Error: invali directory."); return; }
+		catch IO(e) : { println("Error: invalid directory."); return; }
 	
 	highReqs = [];
 	lowReqs = [];
@@ -226,15 +226,6 @@ void detect(loc highFilesDir, loc lowFilesDir, int filterType) {
 	}
 }
 
-
-void runTool() {
-	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 1);
-}
-
-void evaluateTool() {
-	evaluate(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 1, |project://Assignment1/data/modis/handtrace.txt|);	
-}
-
 void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFile) {
 	int tp = 0; // true positives
 	int fp = 0; // false positives
@@ -339,4 +330,15 @@ void evaluate(loc highFilesDir, loc lowFilesDir, int filterType, loc traceLinkFi
 	}
 	
 	
+}
+
+
+// quick-run functions
+
+void runTool() {
+	detect(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 1);
+}
+
+void evaluateTool() {
+	evaluate(|project://Assignment1/data/modis/high|, |project://Assignment1/data/modis/low|, 1, |project://Assignment1/data/modis/handtrace.txt|);	
 }
