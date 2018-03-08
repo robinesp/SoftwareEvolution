@@ -8,13 +8,15 @@ import lang::java::jdt::m3::AST;
 import analysis::flow::ObjectFlow;
 import lang::java::flow::JavaToObjectFlow;
 
+
 void generate_suggestions(loc project) {
 	
 	m = createM3FromEclipseProject(project);
-	p = createOFG(project);
+	set[Declaration] asts = createAstsFromFiles(toSet(project.ls), true);
+	p = createOFG(asts);
 	
 }
 
 void run() {
-	generate_suggestions(|project://eLib|);
+	generate_suggestions(|project://eLib/|);
 }
