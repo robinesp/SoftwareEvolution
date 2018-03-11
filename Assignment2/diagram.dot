@@ -1,0 +1,32 @@
+digraph classes {
+  fontname = "Bitstream Vera Sans"
+  fontsize = 8
+  node [ fontname = "Bitstream Vera Sans" fontsize = 8 shape = "record" ]
+  edge [ fontname = "Bitstream Vera Sans" fontsize = 8 ]
+
+  
+ "N|java+class:///InternalUser|" [label="{InternalUser||}"]
+  
+ "N|java+class:///Book|" [label="{Book||}"]
+  
+ "N|java+class:///User|" [label="{User||}"]
+  
+ "N|java+class:///Loan|" [label="{Loan||}"]
+  
+ "N|java+class:///TechnicalReport|" [label="{TechnicalReport||}"]
+  
+ "N|java+class:///Document|" [label="{Document||}"]
+  
+ "N|java+class:///Library|" [label="{Library||}"]
+  
+ "N|java+class:///Journal|" [label="{Journal||}"]
+  
+ "N|java+class:///Main|" [label="{Main||}"]
+  
+
+   
+  "N|java+class:///User|" -> "N|java+class:///InternalUser|" [arrowhead="empty"]
+  "N|java+class:///Document|" -> "N|java+class:///Book|" [arrowhead="empty"]
+  "N|java+class:///Document|" -> "N|java+class:///TechnicalReport|" [arrowhead="empty"]
+  "N|java+class:///Document|" -> "N|java+class:///Journal|" [arrowhead="empty"]
+}
