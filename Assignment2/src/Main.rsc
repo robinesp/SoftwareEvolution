@@ -61,10 +61,19 @@ void generate_suggestions(loc project) {
 	
 	//get single type suggestion
 	single_suggestions = getSingleSuggestions(ofg, toCorrect_single);
+	//TODO: these two variables are not linked to any suggestion:
+	//|java+variable:///Main/searchDoc(java.lang.String)/docs| and |java+variable:///Main/searchUser(java.lang.String)/users|
 	
-	//print <collection, suggested type>
-	for(x <- single_suggestions)
-		println(x);
+	
+	//create copy of the project
+	loc project_new = |<project.scheme>://<project.authority><project.path[..size(project.path)-1]+"_modernized">|;
+	mkDirectory(project_new);
+	for(file <- toSet(project.ls), contains(file.path, "java")) {
+		writeFile(|<project_new.scheme>://<project_new.authority><file.path>|, readFile(file));
+	}
+	
+	//single type corrections
+	doSingleCorrections(single_suggestions, project_new, m);
 	
 }
 
@@ -79,9 +88,11 @@ rel[loc, loc] getSingleSuggestions (OFG ofg, set[loc] collections) {
 			prev = [];
 			do {
 				prev = [ from | <from, to> <- ofg, to==obj, !contains(from.scheme, "interface") && !contains(from.scheme, "id") ];
-				if(size(prev)>0) obj = prev[0];
+				if(size(prev)>0 && !contains(obj.scheme, "class")) obj = prev[0];
 			} while (size(prev)>0 && !contains(obj.scheme, "class"));
-			assigned_types += obj;
+			
+			if(contains(obj.scheme, "class"))
+				assigned_types += obj;
 		}
 		
 		loc suggested_type;
@@ -98,6 +109,40 @@ rel[loc, loc] getSingleSuggestions (OFG ofg, set[loc] collections) {
 		single_suggestions += <col, suggested_type>;
 	}
 	return single_suggestions;
+}
+
+
+void doSingleCorrections (rel[loc,loc] single_suggestions, loc project_new, M3 m) {
+	writeFile(|project://Assignment2/suggestions.txt|,"");
+	for(<variable, class> <- single_suggestions) {
+		location = [ file | <var, file> <- m.declarations, var==variable ][0];
+		location.length = 1000;
+		location.offset -= location.begin.column;
+		old_line = readFileLines(location)[0];
+		
+		className = split("/", class.path)[1];
+		splitted = split(" ", old_line);
+		str new_line;
+		if (splitted[3]=="new")
+			new_line = splitted[0] + "\<" + className + "\> " + splitted[1] + " = " + splitted[3] + " " + split("()",splitted[4])[0] + "\<\>(); ";
+		else
+			new_line = splitted[0] + "\<" + className + "\> " + splitted[1] + " = " + splitted[3];
+		
+		//print suggestion to file
+		appendToFile(|project://Assignment2/suggestions.txt|,"@");
+		appendToFile(|project://Assignment2/suggestions.txt|,location);
+		appendToFile(|project://Assignment2/suggestions.txt|,"\n"+old_line+"\n");
+		appendToFile(|project://Assignment2/suggestions.txt|,new_line+"\n\n");
+		
+		//change line in file
+		file_path = |<project_new.scheme>://<project_new.authority><location.path>|;
+		whole_file = split("\r\n",readFile(file_path));
+		line_index = location.begin.line;
+		whole_file[line_index-1] = new_line;		
+		writeFile(file_path,"");
+		for(line <- whole_file)
+			appendToFile(file_path, line+"\r\n");
+	}
 }
 
 
