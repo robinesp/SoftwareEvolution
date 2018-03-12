@@ -50,7 +50,7 @@ void generate_suggestions(loc project) {
 	//create copy of the project
 	loc project_new = |<project.scheme>://<project.authority><project.path[..size(project.path)-1]+"_modernized">|;
 	mkDirectory(project_new);
-	for(file <- toSet(project.ls), contains(file.path, "java")) {
+	for(file <- toSet(project.ls), contains(file.path, ".java")) {
 		writeFile(|<project_new.scheme>://<project_new.authority><file.path>|, readFile(file));
 	}
 	
@@ -142,7 +142,8 @@ void doSingleCorrections (rel[loc,loc] single_suggestions, loc project_new, M3 m
 		
 		//change line in file
 		file_path = |<project_new.scheme>://<project_new.authority><location.path>|;
-		whole_file = split("\r\n",readFile(file_path));
+		file_content = readFile(file_path);
+		whole_file = contains(file_content, "\r\n") ? split("\r\n",file_content) : split("\n",file_content);
 		line_index = location.begin.line;
 		whole_file[line_index-1] = new_line;		
 		writeFile(file_path,"");
@@ -178,7 +179,8 @@ void doSingleMethodCorrections (rel[loc,loc] single_suggestions, loc project_new
 			
 			//change line in file
 			file_path = |<project_new.scheme>://<project_new.authority><location.path>|;
-			whole_file = split("\r\n",readFile(file_path));
+			file_content = readFile(file_path);
+			whole_file = contains(file_content, "\r\n") ? split("\r\n",file_content) : split("\n",file_content);
 			line_index = location.begin.line;
 			whole_file[line_index-1] = new_line;		
 			writeFile(file_path,"");
@@ -249,7 +251,8 @@ void doDoubleCorrections (rel[loc,loc,loc] double_suggestions, loc project_new, 
 		
 		//change line in file
 		file_path = |<project_new.scheme>://<project_new.authority><location.path>|;
-		whole_file = split("\r\n",readFile(file_path));
+		file_content = readFile(file_path);
+		whole_file = contains(file_content, "\r\n") ? split("\r\n",file_content) : split("\n",file_content);
 		line_index = location.begin.line;
 		whole_file[line_index-1] = new_line;		
 		writeFile(file_path,"");
@@ -289,7 +292,8 @@ void doDoubleMethodCorrections (rel[loc,loc,loc] single_suggestions, loc project
 			
 			//change line in file
 			file_path = |<project_new.scheme>://<project_new.authority><location.path>|;
-			whole_file = split("\r\n",readFile(file_path));
+			file_content = readFile(file_path);
+			whole_file = contains(file_content, "\r\n") ? split("\r\n",file_content) : split("\n",file_content);
 			line_index = location.begin.line;
 			whole_file[line_index-1] = new_line;		
 			writeFile(file_path,"");
