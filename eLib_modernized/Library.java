@@ -90,7 +90,7 @@
 	return loans.contains(new Loan(user, doc));
  }
  
- public List searchUser(String name) {
+ public List<User> searchUser(String name) { 
 	List<User> usersFound = new LinkedList<>(); 
 	Iterator<User> i = users.values().iterator();
 	while (i.hasNext()) {
@@ -101,7 +101,7 @@
 	return usersFound;
  }
  
- public List searchDocumentByTitle(String title) {
+ public List<Document> searchDocumentByTitle(String title) { 
 	List<Document> docsFound = new LinkedList<>(); 
 	Iterator<Document> i = documents.values().iterator();
 	while (i.hasNext()) {
@@ -112,7 +112,7 @@
 	return docsFound;
  }
  
- public List searchDocumentByAuthors(String authors) {
+ public List<Document> searchDocumentByAuthors(String authors) { 
 	List<Document> docsFound = new LinkedList<>(); 
 	Iterator<Document> i = documents.values().iterator();
 	while (i.hasNext()) {

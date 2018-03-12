@@ -11,7 +11,6 @@ import lang::java::flow::JavaToObjectFlow;
 import FlowGraphsAndClassDiagrams;
 
 
-
 void generate_suggestions(loc project) {
 
 	//create m3 model
@@ -47,24 +46,7 @@ void generate_suggestions(loc project) {
 		appendToFile(|project://Assignment2/links.txt|,"\n");
 	}
 	
-	
-	//get collections with single type
-	toCorrect_single = {};
-	for(interface <- ["List", "Iterator", "Collection", "Comparator", "Deque", "Enumeration", "ListIterator", "NavigableSet", "Queue", "Set", "SortedSet"])
-		toCorrect_single += { to | <to, from> <- m.typeDependency, contains(from.path, interface), contains(to.scheme, "variable") || contains(to.scheme, "field") };
-	
-	//get collections with double type
-	toCorrect_double = {};
-	for(interface <- ["Map", "Map.Entry", "NavigableMap", "SortedMap"])
-		toCorrect_double += { to | <to, from> <- m.typeDependency, contains(from.path, interface), contains(to.scheme, "variable") || contains(to.scheme, "field") };
-	
-	
-	//get single type suggestion
-	single_suggestions = getSingleSuggestions(ofg, toCorrect_single);
-	//TODO: these two variables are not linked to any suggestion:
-	//|java+variable:///Main/searchDoc(java.lang.String)/docs| and |java+variable:///Main/searchUser(java.lang.String)/users|
-	
-	
+
 	//create copy of the project
 	loc project_new = |<project.scheme>://<project.authority><project.path[..size(project.path)-1]+"_modernized">|;
 	mkDirectory(project_new);
@@ -72,9 +54,31 @@ void generate_suggestions(loc project) {
 		writeFile(|<project_new.scheme>://<project_new.authority><file.path>|, readFile(file));
 	}
 	
-	//single type corrections
-	doSingleCorrections(single_suggestions, project_new, m);
+	//create suggestions output files
+	writeFile(|project://Assignment2/suggestions.txt|,"");
 	
+	
+	//get collections with single type
+	toCorrect_single = {};
+	for(interface <- ["List", "Iterator", "Collection", "Comparator", "Deque", "Enumeration", "ListIterator", "NavigableSet", "Queue", "Set", "SortedSet"])
+		toCorrect_single += { to | <to, from> <- m.typeDependency, contains(from.path, interface), contains(to.scheme, "variable") || contains(to.scheme, "field") };
+	
+	//get single type suggestion
+	single_suggestions = getSingleSuggestions(ofg, toCorrect_single);
+	//TODO: these two variables are not linked to any suggestion:
+	//|java+variable:///Main/searchDoc(java.lang.String)/docs| and |java+variable:///Main/searchUser(java.lang.String)/users|
+	
+	//single type corrections in variables and methods
+	doSingleCorrections(single_suggestions, project_new, m);
+	doSingleMethodCorrections(single_suggestions, project_new, ofg, m);
+	
+	
+	//get collections with double type
+	toCorrect_double = {};
+	for(interface <- ["Map", "Map.Entry", "NavigableMap", "SortedMap"])
+		toCorrect_double += { to | <to, from> <- m.typeDependency, contains(from.path, interface), contains(to.scheme, "variable") || contains(to.scheme, "field") };
+	
+	//TODO: doDouvleCorrections() and do DoubleMethodCorrections()
 }
 
 
@@ -113,7 +117,7 @@ rel[loc, loc] getSingleSuggestions (OFG ofg, set[loc] collections) {
 
 
 void doSingleCorrections (rel[loc,loc] single_suggestions, loc project_new, M3 m) {
-	writeFile(|project://Assignment2/suggestions.txt|,"");
+
 	for(<variable, class> <- single_suggestions) {
 		location = [ file | <var, file> <- m.declarations, var==variable ][0];
 		location.length = 1000;
@@ -145,6 +149,42 @@ void doSingleCorrections (rel[loc,loc] single_suggestions, loc project_new, M3 m
 	}
 }
 
+void doSingleMethodCorrections (rel[loc,loc] single_suggestions, loc project_new, OFG ofg, M3 m) {
+	
+	for(<variable, class> <- single_suggestions) {
+		return_methods = [ to | <from, to> <- ofg, from==variable, contains(to.path, "return") ];
+		if(size(return_methods)>0) {		
+			methodName = |<return_methods[0].scheme>://<return_methods[0].authority><return_methods[0].path[..size(return_methods[0].path)-7]>|;			
+			location = [ file | <var, file> <- m.declarations, var==methodName ][0];
+			location.length = 1000;
+			location.offset -= location.begin.column;
+			old_line = readFileLines(location)[0];
+			
+			className = split("/", class.path)[1];
+			splitted = split(" ", old_line);
+			str new_line = "";
+			for(i <- [0..size(splitted)]) {
+				if(i==2) new_line += splitted[i] + "\<" + className + "\> ";
+				else new_line += splitted[i] + " ";
+			}
+			
+			//print suggestion to file
+			appendToFile(|project://Assignment2/suggestions.txt|,"@");
+			appendToFile(|project://Assignment2/suggestions.txt|,location);
+			appendToFile(|project://Assignment2/suggestions.txt|,"\n"+old_line+"\n");
+			appendToFile(|project://Assignment2/suggestions.txt|,new_line+"\n\n");
+			
+			//change line in file
+			file_path = |<project_new.scheme>://<project_new.authority><location.path>|;
+			whole_file = split("\r\n",readFile(file_path));
+			line_index = location.begin.line;
+			whole_file[line_index-1] = new_line;		
+			writeFile(file_path,"");
+			for(line <- whole_file)
+				appendToFile(file_path, line+"\r\n");
+		}
+	}
+}
 
 void run() {
 	generate_suggestions(|project://eLib/|);

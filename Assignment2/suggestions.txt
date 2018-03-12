@@ -42,3 +42,15 @@
 	Collection loans = new LinkedList();
 	Collection<Loan> loans = new LinkedList<>(); 
 
+@|project://eLib/Library.java|(2880,1000,<115,1>,<124,2>)
+ public List searchDocumentByAuthors(String authors) {
+ public List<Document> searchDocumentByAuthors(String authors) { 
+
+@|project://eLib/Library.java|(2585,1000,<104,1>,<113,2>)
+ public List searchDocumentByTitle(String title) {
+ public List<Document> searchDocumentByTitle(String title) { 
+
+@|project://eLib/Library.java|(2309,1000,<93,1>,<102,2>)
+ public List searchUser(String name) {
+ public List<User> searchUser(String name) { 
+
