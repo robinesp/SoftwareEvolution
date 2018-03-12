@@ -1,46 +1,46 @@
 @|project://eLib/Library.java|(2936,1000,<116,6>,<116,34>)
 	List docsFound = new LinkedList();
-	List<Document> docsFound = new LinkedList<>(); 
+	List<Document> docsFound = new LinkedList<>();
 
 @|project://eLib/Library.java|(3456,1000,<137,10>,<137,30>)
 	Iterator i = loans.iterator();
-	Iterator<Loan> i = loans.iterator();
+	Iterator<Loan> i = loans.iterator(); 
 
 @|project://eLib/Library.java|(3234,1000,<127,10>,<127,43>)
 	Iterator i = documents.values().iterator();
-	Iterator<Document> i = documents.values().iterator();
+	Iterator<Document> i = documents.values().iterator(); 
 
 @|project://eLib/Library.java|(2637,1000,<105,6>,<105,34>)
 	List docsFound = new LinkedList();
-	List<Document> docsFound = new LinkedList<>(); 
+	List<Document> docsFound = new LinkedList<>();
 
 @|project://eLib/Library.java|(2674,1000,<106,10>,<106,43>)
 	Iterator i = documents.values().iterator();
-	Iterator<Document> i = documents.values().iterator();
+	Iterator<Document> i = documents.values().iterator(); 
 
 @|project://eLib/Library.java|(2349,1000,<94,6>,<94,35>)
 	List usersFound = new LinkedList();
-	List<User> usersFound = new LinkedList<>(); 
+	List<User> usersFound = new LinkedList<>();
 
 @|project://eLib/User.java|(115,1000,<8,12>,<8,36>)
 	Collection loans = new LinkedList();
-	Collection<Loan> loans = new LinkedList<>(); 
+	Collection<Loan> loans = new LinkedList<>();
 
 @|project://eLib/User.java|(1190,1000,<60,11>,<60,31>)
 		Iterator i = loans.iterator();
-		Iterator<Loan> i = loans.iterator();
+		Iterator<Loan> i = loans.iterator(); 
 
 @|project://eLib/Library.java|(2973,1000,<117,10>,<117,43>)
 	Iterator i = documents.values().iterator();
-	Iterator<Document> i = documents.values().iterator();
+	Iterator<Document> i = documents.values().iterator(); 
 
 @|project://eLib/Library.java|(2387,1000,<95,10>,<95,39>)
 	Iterator i = users.values().iterator();
-	Iterator<User> i = users.values().iterator();
+	Iterator<User> i = users.values().iterator(); 
 
 @|project://eLib/Library.java|(124,1000,<7,12>,<7,36>)
 	Collection loans = new LinkedList();
-	Collection<Loan> loans = new LinkedList<>(); 
+	Collection<Loan> loans = new LinkedList<>();
 
 @|project://eLib/Library.java|(2880,1000,<115,1>,<124,2>)
  public List searchDocumentByAuthors(String authors) {
@@ -53,4 +53,12 @@
 @|project://eLib/Library.java|(2309,1000,<93,1>,<102,2>)
  public List searchUser(String name) {
  public List<User> searchUser(String name) { 
+
+@|project://eLib/Library.java|(62,1000,<5,5>,<5,30>)
+	Map documents = new HashMap();
+	Map<Document, Document> documents = new HashMap<>();
+
+@|project://eLib/Library.java|(95,1000,<6,5>,<6,26>)
+	Map users = new HashMap();
+	Map<User, User> users = new HashMap<>();
 

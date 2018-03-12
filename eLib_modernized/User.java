@@ -5,7 +5,7 @@
 	String fullName;
 	String address;
 	String phoneNumber;
-	Collection<Loan> loans = new LinkedList<>(); 
+	Collection<Loan> loans = new LinkedList<>();
 	static int nextUserCodeAvailable = 0;
  
 	public User(String name, String addr, String phone) {
@@ -57,7 +57,7 @@
 		System.out.println("Address: " + getAddress());
 		System.out.println ("Phone: " + getPhone());
 		System.out.println("Borrowed documents:");		
-		Iterator<Loan> i = loans.iterator();
+		Iterator<Loan> i = loans.iterator(); 
 		while (i.hasNext()) {
 			Loan loan = (Loan)i.next();
 			Document doc = loan.getDocument();

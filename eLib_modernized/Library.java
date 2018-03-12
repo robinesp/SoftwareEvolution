@@ -2,9 +2,9 @@
  import java.io.*;
 
  class Library {
-	Map documents = new HashMap();
-	Map users = new HashMap();
-	Collection<Loan> loans = new LinkedList<>(); 
+	Map<Document, Document> documents = new HashMap<>();
+	Map<User, User> users = new HashMap<>();
+	Collection<Loan> loans = new LinkedList<>();
 	final int MAX_NUMBER_OF_LOANS = 20;
  
  public boolean addUser(User user) {
@@ -91,8 +91,8 @@
  }
  
  public List<User> searchUser(String name) { 
-	List<User> usersFound = new LinkedList<>(); 
-	Iterator<User> i = users.values().iterator();
+	List<User> usersFound = new LinkedList<>();
+	Iterator<User> i = users.values().iterator(); 
 	while (i.hasNext()) {
 		User user = (User)i.next();
 		if (user.getName().indexOf(name) != -1)
@@ -102,8 +102,8 @@
  }
  
  public List<Document> searchDocumentByTitle(String title) { 
-	List<Document> docsFound = new LinkedList<>(); 
-	Iterator<Document> i = documents.values().iterator();
+	List<Document> docsFound = new LinkedList<>();
+	Iterator<Document> i = documents.values().iterator(); 
 	while (i.hasNext()) {
 		Document doc = (Document)i.next();
 		if (doc.getTitle().indexOf(title) != -1)
@@ -113,8 +113,8 @@
  }
  
  public List<Document> searchDocumentByAuthors(String authors) { 
-	List<Document> docsFound = new LinkedList<>(); 
-	Iterator<Document> i = documents.values().iterator();
+	List<Document> docsFound = new LinkedList<>();
+	Iterator<Document> i = documents.values().iterator(); 
 	while (i.hasNext()) {
 		Document doc = (Document)i.next();
 		if (doc.getAuthors().indexOf(authors) != -1)
@@ -124,7 +124,7 @@
  }
  
  public int searchDocumentByISBN(String isbn) {
-	Iterator<Document> i = documents.values().iterator();
+	Iterator<Document> i = documents.values().iterator(); 
 	while (i.hasNext()) {
 	Document doc = (Document)i.next();
 	if (isbn.equals(doc.getISBN()))
@@ -134,7 +134,7 @@
  }
  
  public void printAllLoans() {
-	Iterator<Loan> i = loans.iterator();
+	Iterator<Loan> i = loans.iterator(); 
 	while (i.hasNext()) {
 		Loan loan = (Loan)i.next();
 		loan.print();
