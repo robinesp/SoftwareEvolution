@@ -66,7 +66,7 @@ void generate_suggestions(loc project) {
 	//generate single type suggestion
 	//TODO: these two variables are not linked to any suggestion:
 	//|java+variable:///Main/searchDoc(java.lang.String)/docs| and |java+variable:///Main/searchUser(java.lang.String)/users|
-	single_suggestions = getSingleSuggestions(ofg, toCorrect_single);
+	single_suggestions = getSingleSuggestions(toCorrect_single, ofg, m);
 	doSingleCorrections(single_suggestions, project_new, m);
 	doSingleMethodCorrections(single_suggestions, project_new, ofg, m);
 	
@@ -77,13 +77,13 @@ void generate_suggestions(loc project) {
 		toCorrect_double += { to | <to, from> <- m.typeDependency, contains(from.path, interface), contains(to.scheme, "variable") || contains(to.scheme, "field") };
 	
 	//generate double type suggestion
-	double_suggestions = getDoubleSuggestions(ofg, toCorrect_double);
+	double_suggestions = getDoubleSuggestions(toCorrect_double, ofg, m);
 	doDoubleCorrections(double_suggestions, project_new, m);
 	doDoubleMethodCorrections(double_suggestions, project_new, ofg, m);
 }
 
 
-rel[loc, loc] getSingleSuggestions (OFG ofg, set[loc] collections) {
+rel[loc, loc] getSingleSuggestions (set[loc] collections, OFG ofg, M3 m) {
 	single_suggestions = {};
 	for(col <- collections) {
 		assigned_objects = { from | <from, to> <- ofg, to==col, contains(from.scheme, "variable") || contains(from.scheme, "field") || contains(from.scheme, "parameter") };
@@ -108,8 +108,8 @@ rel[loc, loc] getSingleSuggestions (OFG ofg, set[loc] collections) {
 			//only one type to suggest
 			suggested_type = getOneFrom(assigned_types);
 		else
-			//TODO: find smallest common subtype
-			continue;
+			//find smallest common supertype
+			suggested_type = getSmallestCommonSuperclass(assigned_types, m);
 			
 		single_suggestions += <col, suggested_type>;
 	}
@@ -125,7 +125,7 @@ void doSingleCorrections (rel[loc,loc] single_suggestions, loc project_new, M3 m
 		location.offset -= location.begin.column;
 		old_line = readFileLines(location)[0];
 		
-		className = split("/", class.path)[1];
+		className = split("/", class.path)[size(split("/", class.path))-2];
 		splitted = split(" ", old_line);
 		str new_line = "";
 		for(i <- [0..size(splitted)]) {
@@ -163,7 +163,7 @@ void doSingleMethodCorrections (rel[loc,loc] single_suggestions, loc project_new
 			location.offset -= location.begin.column;
 			old_line = readFileLines(location)[0];
 			
-			className = split("/", class.path)[1];
+			className = split("/", class.path)[size(split("/", class.path))-2];
 			splitted = split(" ", old_line);
 			str new_line = "";
 			for(i <- [0..size(splitted)]) {
@@ -190,7 +190,7 @@ void doSingleMethodCorrections (rel[loc,loc] single_suggestions, loc project_new
 	}
 }
 
-rel[loc, loc, loc] getDoubleSuggestions (OFG ofg, set[loc] collections) {
+rel[loc, loc, loc] getDoubleSuggestions (set[loc] collections, OFG ofg, M3 m) {
 	single_suggestions = {};
 	for(col <- collections) {
 		assigned_objects = { from | <from, to> <- ofg, to==col, contains(from.scheme, "variable") || contains(from.scheme, "field") || contains(from.scheme, "parameter") };
@@ -215,8 +215,8 @@ rel[loc, loc, loc] getDoubleSuggestions (OFG ofg, set[loc] collections) {
 			//only one type to suggest
 			suggested_type = getOneFrom(assigned_types);
 		else
-			//TODO: find smallest common subtype
-			continue;
+			//find smallest common supertype
+			suggested_type = getSmallestCommonSuperclass(assigned_types, m);
 			
 		//TODO: find actual key type
 		single_suggestions += <col, suggested_type, suggested_type>;
@@ -233,8 +233,8 @@ void doDoubleCorrections (rel[loc,loc,loc] double_suggestions, loc project_new, 
 		location.offset -= location.begin.column;
 		old_line = readFileLines(location)[0];
 		
-		className1 = split("/", class1.path)[1];
-		className2 = split("/", class2.path)[1];
+		className1 = split("/", class1.path)[size(split("/", class1.path))-2];
+		className2 = split("/", class2.path)[size(split("/", class2.path))-2];
 		splitted = split(" ", old_line);
 		str new_line = "";
 		for(i <- [0..size(splitted)]) {
@@ -275,8 +275,8 @@ void doDoubleMethodCorrections (rel[loc,loc,loc] single_suggestions, loc project
 			//check that method requires two types
 			if (!contains(old_line,"Map")) continue;
 						
-			className1 = split("/", class1.path)[1];
-			className2 = split("/", class2.path)[1];
+			className1 = split("/", class1.path)[size(split("/", class1.path))-2];
+			className2 = split("/", class2.path)[size(split("/", class2.path))-2];
 			splitted = split(" ", old_line);
 			str new_line = "";
 			for(i <- [0..size(splitted)]) {
@@ -301,6 +301,41 @@ void doDoubleMethodCorrections (rel[loc,loc,loc] single_suggestions, loc project
 				appendToFile(file_path, line+"\r\n");
 		}
 	}
+}
+
+loc getSmallestCommonSuperclass(set[loc] classes, M3 m) {
+	//get hierarchy for each class
+	chains = [];
+	for(current <- classes) {
+		list[loc] super;
+		chain = [];
+		do {
+			chain += current;
+			super = [ parent | <class, parent> <- m.extends, class==current ];
+			if (size(super)>0)
+				current = super[0];
+		} while(size(super)>0);
+		chains += [chain];
+	}
+	
+	//find the smalles supertype occurring in all chains
+	found = false;
+	superclass = |java+class:///java/lang/Object/this|;
+	for(el <- chains[0]) {
+		for(chain <- chains[1..]) {
+			if (!(el in chain)) {
+				found = false;
+				break;
+			}
+			found = true;
+		}
+		if(found==true) {
+			superclass = el;
+			break;
+		}
+	}
+	
+	return superclass;
 }
 
 void run() {
