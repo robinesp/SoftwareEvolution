@@ -12,6 +12,9 @@ import FlowGraphsAndClassDiagrams;
 
 
 loc getSmallestCommonSuperclass(set[loc] classes, M3 m) {
+
+	if(size(classes)==1) return getOneFrom(classes);
+	
 	//get hierarchy for each class
 	chains = [];
 	for(current <- classes) {

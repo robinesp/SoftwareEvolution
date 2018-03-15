@@ -12,6 +12,7 @@ import FlowGraphsAndClassDiagrams;
 import Util;
 
 rel[loc, loc] getSingleSuggestions (set[loc] collections, OFG ofg, M3 m) {
+
 	single_suggestions = {};
 	for(col <- collections) {
 		assigned_objects = { from | <from, to> <- ofg, to==col, contains(from.scheme, "variable") || contains(from.scheme, "field") || contains(from.scheme, "parameter") };
@@ -30,11 +31,11 @@ rel[loc, loc] getSingleSuggestions (set[loc] collections, OFG ofg, M3 m) {
 		
 		if (size(assigned_types)==0)
 			continue;
-		else 
-			suggested_type = (size(assigned_types)==1) ?getOneFrom(assigned_types) : getSmallestCommonSuperclass(assigned_types, m);
-			
+		
+		suggested_type = getSmallestCommonSuperclass(assigned_types, m);			
 		single_suggestions += <col, suggested_type>;
 	}
+	
 	return single_suggestions;
 }
 
@@ -113,6 +114,7 @@ void doSingleMethodCorrections (rel[loc,loc] single_suggestions, loc project_new
 }
 
 rel[loc, loc, loc] getDoubleSuggestions (set[loc] collections, OFG ofg, M3 m) {
+
 	single_suggestions = {};
 	for(col <- collections) {
 		assigned_objects = { from | <from, to> <- ofg, to==col, contains(from.scheme, "variable") || contains(from.scheme, "field") || contains(from.scheme, "parameter") };
@@ -131,13 +133,13 @@ rel[loc, loc, loc] getDoubleSuggestions (set[loc] collections, OFG ofg, M3 m) {
 		
 		if (size(assigned_types)==0)
 			continue;
-		else 
-			suggested_type = (size(assigned_types)==1) ?getOneFrom(assigned_types) : getSmallestCommonSuperclass(assigned_types, m);
-			
+		
+		suggested_type = getSmallestCommonSuperclass(assigned_types, m);
 		key_types = getKeyTypes(col, m);
 		key_type = (size(key_types)==1) ? getOneFrom(key_types) : getSmallestCommonSuperclass(key_types, m);
 		single_suggestions += <col, key_type, suggested_type>;
 	}
+	
 	return single_suggestions;
 }
 
