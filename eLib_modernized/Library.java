@@ -2,8 +2,8 @@
  import java.io.*;
 
  class Library {
-	Map<Document, Document> documents = new HashMap<>();
-	Map<User, User> users = new HashMap<>();
+	Map<Integer, Document> documents = new HashMap<>();
+	Map<Integer, User> users = new HashMap<>();
 	Collection<Loan> loans = new LinkedList<>();
 	final int MAX_NUMBER_OF_LOANS = 20;
  
