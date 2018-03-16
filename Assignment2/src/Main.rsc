@@ -17,7 +17,8 @@ void generate_suggestions(loc project) {
 	//create m3 model, flow program and OFG graph
 	m = createM3FromEclipseProject(project);
 	set[Declaration] asts = createAstsFromFiles(toSet(project.ls), true);
-	p = createOFG(asts);OFG ofg = buildGraph(p, m);
+	p = createOFG(asts);
+	OFG ofg = buildGraph(p, m);
 
 
 	//create copy of the project

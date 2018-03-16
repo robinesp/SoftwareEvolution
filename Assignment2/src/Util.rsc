@@ -79,7 +79,7 @@ set[loc] getKeyTypes(loc collection, M3 m) {
 		}
 	}
 	
-	//look for keys initialized or asigned in same file
+	//look for keys initialized or assigned in same file
 	for(l <- interesting_lines) {
 		collection_index = findFirst(l, collectionName);
 		l = l[collection_index..];
