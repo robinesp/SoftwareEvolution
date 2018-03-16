@@ -14,39 +14,11 @@ import Util;
 
 void generate_suggestions(loc project) {
 
-	//create m3 model
+	//create m3 model, flow program and OFG graph
 	m = createM3FromEclipseProject(project);
-	//show diagram
-	//drawDiagram(m);
-	//print diagram to file
-	//showDot(m);
-	
-	//create flow program
 	set[Declaration] asts = createAstsFromFiles(toSet(project.ls), true);
-	p = createOFG(asts);
-	
-	/*//print statements to file
-	writeFile(|project://Assignment2/statements.txt|,"");
-	for(x <- p.statements) {
-		appendToFile(|project://Assignment2/statements.txt|,x);
-		appendToFile(|project://Assignment2/statements.txt|,"\n");
-	}
-	
-	//print decls to file
-	writeFile(|project://Assignment2/decls.txt|,"");
-	for(x <- p.decls) {
-		appendToFile(|project://Assignment2/decls.txt|,x);
-		appendToFile(|project://Assignment2/decls.txt|,"\n");
-	}*/
-	
-	//build OFG graph
-	OFG ofg = buildGraph(p, m);
-	/*writeFile(|project://Assignment2/links.txt|,"");
-	for(x <- ofg) {
-		appendToFile(|project://Assignment2/links.txt|,x);
-		appendToFile(|project://Assignment2/links.txt|,"\n");
-	}*/
-	
+	p = createOFG(asts);OFG ofg = buildGraph(p, m);
+
 
 	//create copy of the project
 	loc project_new = |<project.scheme>://<project.authority><project.path[..size(project.path)-1]+"_modernized">|;
@@ -55,7 +27,7 @@ void generate_suggestions(loc project) {
 		writeFile(|<project_new.scheme>://<project_new.authority><file.path>|, readFile(file));
 	}
 	
-	//create suggestions output files
+	//create suggestions output file
 	writeFile(|project://Assignment2/suggestions.txt|,"");
 	
 	
@@ -65,8 +37,6 @@ void generate_suggestions(loc project) {
 		toCorrect_single += { to | <to, from> <- m.typeDependency, contains(from.path, interface), contains(to.scheme, "variable") || contains(to.scheme, "field") };
 	
 	//generate single type suggestion
-	//TODO: these two variables are not linked to any suggestion:
-	//|java+variable:///Main/searchDoc(java.lang.String)/docs| and |java+variable:///Main/searchUser(java.lang.String)/users|
 	single_suggestions = getSingleSuggestions(toCorrect_single, ofg, m);
 	doSingleCorrections(single_suggestions, project_new, m);
 	doSingleMethodCorrections(single_suggestions, project_new, ofg, m);
